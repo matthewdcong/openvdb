@@ -165,7 +165,9 @@ exportTransform(nb::module_ m)
         .def("rotate", &math::Transform::preRotate,
             nb::arg("radians"), nb::arg("axis") = math::X_AXIS,
             "Accumulate a rotation about either Axis.X, Axis.Y or Axis.Z.")
-        .def("translate", &math::Transform::postTranslate, nb::arg("xyz"),
+        .def("preTranslate", &math::Transform::preTranslate, nb::arg("xyz"),
+            "Accumulate a translation.")
+        .def("postTranslate", &math::Transform::postTranslate, nb::arg("xyz"),
             "Accumulate a translation.")
         .def("scale", &pyTransform::scale1, nb::arg("s"),
             "Accumulate a uniform scale.")
