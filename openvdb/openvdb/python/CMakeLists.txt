@@ -74,6 +74,9 @@ if(USE_AX)
   target_compile_definitions(openvdb_python PUBLIC "-DPY_OPENVDB_USE_AX")
 endif()
 set_target_properties(openvdb_python PROPERTIES OUTPUT_NAME "openvdb")
+if(SKBUILD)
+  set_target_properties(openvdb_python PROPERTIES INSTALL_RPATH "$ORIGIN/openvdb/lib")
+endif()
 
 install(TARGETS openvdb_python DESTINATION ${VDB_PYTHON_INSTALL_DIRECTORY})
 
