@@ -29,9 +29,10 @@ repository = "https://github.com/AcademySoftwareFoundation/openvdb"
 slack = "https://slack.aswf.io/"
 
 [tool.scikit-build]
-wheel.install-dir = "openvdb"
+wheel.packages = []
 
 [tool.scikit-build.cmake.define]
+OPENVDB_BUILD_AX="ON"
 OPENVDB_CORE_STATIC="OFF"
 USE_EXPLICIT_INSTANTIATION="OFF"
 DISABLE_DEPENDENCY_VERSION_CHECKS="ON"
@@ -44,4 +45,3 @@ NANOVDB_USE_CUDA="ON"
 NANOVDB_BUILD_PYTHON_MODULE="ON"
 NANOVDB_USE_OPENVDB="ON"
 
-VDB_PYTHON_INSTALL_DIRECTORY=".."

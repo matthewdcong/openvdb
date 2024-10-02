@@ -75,10 +75,12 @@ if(USE_AX)
 endif()
 set_target_properties(openvdb_python PROPERTIES OUTPUT_NAME "openvdb")
 if(SKBUILD)
-  set_target_properties(openvdb_python PROPERTIES INSTALL_RPATH "$ORIGIN/openvdb/lib")
+  set_target_properties(openvdb_python PROPERTIES INSTALL_RPATH "$ORIGIN")
+  install(TARGETS openvdb_python DESTINATION openvdb/${CMAKE_INSTALL_LIBDIR})
+  install(FILES __init__.py DESTINATION openvdb)
+else()
+  install(TARGETS openvdb_python DESTINATION ${VDB_PYTHON_INSTALL_DIRECTORY})
 endif()
-
-install(TARGETS openvdb_python DESTINATION ${VDB_PYTHON_INSTALL_DIRECTORY})
 
 # pytest
 if(OPENVDB_BUILD_PYTHON_UNITTESTS)
