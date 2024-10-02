@@ -32,7 +32,6 @@ slack = "https://slack.aswf.io/"
 wheel.packages = []
 
 [tool.scikit-build.cmake.define]
-OPENVDB_BUILD_AX="ON"
 OPENVDB_CORE_STATIC="OFF"
 USE_EXPLICIT_INSTANTIATION="OFF"
 DISABLE_DEPENDENCY_VERSION_CHECKS="ON"
